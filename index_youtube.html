@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ditya.id - Panduan & Tutorial Perangkaian Kabel LAN</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              900: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom scrollbar and subtle UI polish */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+    .wire-line {
+      height: 12px;
+      border-radius: 6px;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
+
+  <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Brand Logo -->
+        <div class="flex items-center space-x-3">
+          <a href="#" class="flex items-center space-x-2">
+            <span class="text-2xl font-extrabold tracking-tight text-white">ditya<span class="text-blue-500">.id</span></span>
+          </a>
+          <span class="hidden sm:inline-block px-2.5 py-0.5 text-xs font-semibold bg-blue-950/80 text-blue-400 border border-blue-800/50 rounded-full">
+            Jaringan Komputer
+          </span>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-1">
+          <a href="#hero" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900 rounded-lg transition-colors">Beranda</a>
+          <a href="#video-section" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900 rounded-lg transition-colors">Video Tutorial</a>
+          <a href="#ppt-section" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900 rounded-lg transition-colors">Materi PPT</a>
+          <a href="#standards-section" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900 rounded-lg transition-colors">Standar Kabel</a>
+          <a href="#quiz-section" class="px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900 rounded-lg transition-colors">Kuis Mandiri</a>
+        </nav>
+
+        <!-- Academic Badge / Student Info -->
+        <div class="hidden lg:flex items-center space-x-3 text-xs text-slate-400 border-l border-slate-800 pl-4">
+          <i class="fa-solid fa-graduation-cap text-blue-400"></i>
+          <span>Tugas Praktikum LAN</span>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-900 focus:outline-none">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-slate-950 px-4 pt-2 pb-4 space-y-1">
+      <a href="#hero" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-900 hover:text-white">Beranda</a>
+      <a href="#video-section" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-900 hover:text-white">Video Tutorial</a>
+      <a href="#ppt-section" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-900 hover:text-white">Materi PPT</a>
+      <a href="#standards-section" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-900 hover:text-white">Standar Kabel</a>
+      <a href="#quiz-section" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-900 hover:text-white">Kuis Mandiri</a>
+    </div>
+  </header>
+
+  <section id="hero" class="relative py-16 lg:py-24 overflow-hidden border-b border-slate-800/60 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+            Media Pembelajaran Jaringan Komputer
+          </div>
+          
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Panduan Praktis & Tutorial <br class="hidden sm:inline">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-300">
+              Perangkaian Kabel LAN
+            </span>
+          </h1>
+          
+          <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            Portal dokumentasi dan tutorial step-by-step perangkaian kabel UTP (Straight & Crossover) menggunakan RJ-45 untuk memenuhi tugas mata kuliah Jaringan Komputer.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#video-section" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all shadow-lg shadow-blue-600/20 gap-2 group">
+              <i class="fa-solid fa-play text-xs transition-transform group-hover:scale-110"></i>
+              Tonton Video Tutorial
+            </a>
+            <a href="#ppt-section" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition-all gap-2">
+              <i class="fa-solid fa-file-powerpoint text-amber-400"></i>
+              Lihat Materi PPT
+            </a>
+          </div>
+
+          <!-- Student & Course Details Card -->
+          <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-slate-800/80 text-left">
+            <div>
+              <span class="block text-xs text-slate-500 font-medium">Mahasiswa</span>
+              <span class="text-sm font-semibold text-slate-300">Ditya</span>
+            </div>
+            <div>
+              <span class="block text-xs text-slate-500 font-medium">Mata Kuliah</span>
+              <span class="text-sm font-semibold text-slate-300">Jaringan Komputer</span>
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <span class="block text-xs text-slate-500 font-medium">Topik Praktikum</span>
+              <span class="text-sm font-semibold text-slate-300">Crimping Cable UTP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Graphic / Visual Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl shadow-blue-950/50">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+              <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+              </div>
+              <span class="text-xs text-slate-500 font-mono">LAN-Crimp-Overview</span>
+            </div>
+            
+            <div class="py-6 space-y-4">
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <div class="flex items-center space-x-3">
+                  <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-network-wired"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-slate-200">Kabel UTP Cat5e/Cat6</h4>
+                    <p class="text-xs text-slate-400">Unshielded Twisted Pair</p>
+                  </div>
+                </div>
+                <span class="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300 font-mono">8 Wires</span>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <div class="flex items-center space-x-3">
+                  <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-plug"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-slate-200">Konektor RJ-45</h4>
+                    <p class="text-xs text-slate-400">Standard Registered Jack</p>
+                  </div>
+                </div>
+                <span class="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300 font-mono">Pin 1-8</span>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <div class="flex items-center space-x-3">
+                  <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-slate-200">Tang Crimping</h4>
+                    <p class="text-xs text-slate-400">Pengunci Pin & Pemotong</p>
+                  </div>
+                </div>
+                <span class="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300 font-mono">Tool</span>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> Standard T568B Ready</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> LAN Tester Certified</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="video-section" class="py-16 bg-slate-950 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-10 text-center lg:text-left">
+        <span class="text-xs font-bold tracking-widest text-blue-400 uppercase">Video Pembelajaran</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Tutorial Step-by-Step Perangkaian Kabel LAN</h2>
+        <p class="text-slate-400 text-sm mt-1">Saksikan panduan lengkap dari persiapan alat hingga pengujian jaringan dengan LAN Tester.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Video Player Box -->
+        <div class="lg:col-span-8 bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+          <div class="relative aspect-video bg-black flex items-center justify-center group" id="videoContainer">
+            <!-- YouTube Video Player -->
+            <iframe
+              id="lanVideo"
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/HExLIHVHa0A"
+              title="Tutorial Perangkaian Kabel LAN"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Video Title & Controls Info -->
+          <div class="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-slate-800">
+            <div>
+              <h3 class="font-bold text-slate-100 text-base" id="currentChapterTitle">Tutorial Utama: Panduan Lengkap Crimping Kabel UTP</h3>
+              <p class="text-xs text-slate-400 mt-0.5">Format: MP4 Full HD • Pembuat: Ditya • Praktikum Jaringan Komputer</p>
+            </div>
+            
+            <!-- Video Custom URL Switcher (Modal trigger / inline input) -->
+            <button onclick="toggleVideoUrlModal()" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-colors whitespace-nowrap">
+              <i class="fa-solid fa-link text-blue-400"></i>https://youtu.be/HExLIHVHa0A?si=DIyJtLC95p_olaQJ
+            </button>
+          </div>
+        </div>
+
+        <!-- Video Chapters / Timecodes -->
+        <div class="lg:col-span-4 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <h3 class="font-bold text-slate-200 text-sm flex items-center gap-2">
+              <i class="fa-solid fa-list-ol text-blue-400"></i>
+              Daftar Bab & Timestamp
+            </h3>
+            <span class="text-xs text-slate-400">4 Bab Utama</span>
+          </div>
+
+          <div class="space-y-2" id="chapterList">
+            <!-- Chapter 1 -->
+            <button onclick="goToYouTubeChapter(\'Pengenalan Alat & Bahan\')" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-blue-500/30 hover:border-blue-500 transition-all group flex items-start justify-between gap-3">
+              <div>
+                <span class="text-xs font-mono text-blue-400 block font-semibold">00:00</span>
+                <span class="text-xs font-medium text-slate-200 group-hover:text-blue-300">1. Pengenalan Alat (Tang Crimp, RJ45, UTP)</span>
+              </div>
+              <i class="fa-solid fa-circle-play text-slate-600 group-hover:text-blue-400 text-sm mt-1"></i>
+            </button>
+
+            <!-- Chapter 2 -->
+            <button onclick="goToYouTubeChapter(\'Pengupasan Kabel UTP\')" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-blue-500 transition-all group flex items-start justify-between gap-3">
+              <div>
+                <span class="text-xs font-mono text-blue-400 block font-semibold">00:12</span>
+                <span class="text-xs font-medium text-slate-200 group-hover:text-blue-300">2. Pengupasan Jaket Luar & Pelurusan Kabel</span>
+              </div>
+              <i class="fa-solid fa-circle-play text-slate-600 group-hover:text-blue-400 text-sm mt-1"></i>
+            </button>
+
+            <!-- Chapter 3 -->
+            <button onclick="goToYouTubeChapter(\'Penyusunan Warna T568A & T568B\')" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-blue-500 transition-all group flex items-start justify-between gap-3">
+              <div>
+                <span class="text-xs font-mono text-blue-400 block font-semibold">00:30</span>
+                <span class="text-xs font-medium text-slate-200 group-hover:text-blue-300">3. Urutan Warna Straight vs Crossover</span>
+              </div>
+              <i class="fa-solid fa-circle-play text-slate-600 group-hover:text-blue-400 text-sm mt-1"></i>
+            </button>
+
+            <!-- Chapter 4 -->
+            <button onclick="goToYouTubeChapter(\'Crimping RJ-45 & Pengujian LAN Tester\')" class="w-full text-left p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-blue-500 transition-all group flex items-start justify-between gap-3">
+              <div>
+                <span class="text-xs font-mono text-blue-400 block font-semibold">00:45</span>
+                <span class="text-xs font-medium text-slate-200 group-hover:text-blue-300">4. Crimping & Pengujian LAN Tester</span>
+              </div>
+              <i class="fa-solid fa-circle-play text-slate-600 group-hover:text-blue-400 text-sm mt-1"></i>
+            </button>
+          </div>
+
+          <div class="p-3 bg-blue-950/30 border border-blue-900/40 rounded-xl text-xs text-blue-300 flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-blue-400 text-sm flex-shrink-0"></i>
+            <span>Klik bab di atas untuk berpindah langsung ke bagian video tertentu.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="ppt-section" class="py-16 bg-slate-900/50 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold tracking-widest text-amber-400 uppercase">Dokumentasi PPT</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Materi Presentasi Perangkaian Kabel LAN</h2>
+          <p class="text-slate-400 text-sm mt-1">Slide interaktif penjelasan teori, fungsi pin, standar T568A/T568B, dan troubleshooting.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="#" onclick="alert('File PPTX/PDF berhasil disimulasikan terunduh!'); return false;" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition-colors shadow-lg shadow-amber-500/10">
+            <i class="fa-solid fa-download"></i> Unduh File PPT (.pptx)
+          </a>
+        </div>
+      </div>
+
+      <!-- PPT Viewer Container -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+        
+        <!-- Main Slide Presentation Display -->
+        <div class="relative bg-slate-950 border border-slate-800 rounded-xl p-8 sm:p-12 min-h-[360px] flex flex-col justify-between" id="activeSlideCard">
+          
+          <!-- Slide Header -->
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div class="flex items-center space-x-2">
+              <span id="slideCategoryBadge" class="text-xs px-2.5 py-1 rounded-md font-medium bg-blue-950 text-blue-400 border border-blue-800/60">
+                Slide 1: Pengenalan UTP
+              </span>
+            </div>
+            <span class="text-xs text-slate-500 font-mono" id="slideCounterText">Slide 1 dari 5</span>
+          </div>
+
+          <!-- Slide Content Body -->
+          <div class="py-8 space-y-4" id="slideBody">
+            <h3 class="text-xl sm:text-2xl font-bold text-white" id="slideTitle">Pengenalan Kabel UTP & Konektor RJ-45</h3>
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl" id="slideDescription">
+              Kabel UTP (Unshielded Twisted Pair) adalah media transmisi data yang terdiri dari 4 pasang kawat tembaga yang dipilin. Penggunan utamanya adalah untuk menghubungkan perangkat dalam jaringan lokal (LAN) menggunakan konektor RJ-45.
+            </p>
+            
+            <div class="pt-2 grid sm:grid-cols-2 gap-3" id="slideBullets">
+              <div class="p-3 bg-slate-900/80 border border-slate-800 rounded-lg text-xs text-slate-300 flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400"></i> Kategori umum: Cat5e & Cat6
+              </div>
+              <div class="p-3 bg-slate-900/80 border border-slate-800 rounded-lg text-xs text-slate-300 flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400"></i> Jarak transmisi efektif max 100 meter
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide Navigation Controls -->
+          <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+            <button onclick="prevSlide()" id="prevSlideBtn" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed">
+              <i class="fa-solid fa-arrow-left"></i> Sebelumnya
+            </button>
+            
+            <!-- Quick Slide Dots -->
+            <div class="flex items-center space-x-2" id="slideDots">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-700"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-700"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-700"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-700"></span>
+            </div>
+
+            <button onclick="nextSlide()" id="nextSlideBtn" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white">
+              Selanjutnya <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Slide Thumbnails Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3" id="slideThumbnails">
+          <!-- Slide Thumb 1 -->
+          <button onclick="goToSlide(0)" class="p-3 rounded-xl border bg-slate-950 border-blue-500 text-left transition-all">
+            <span class="text-[10px] text-blue-400 font-bold block">SLIDE 1</span>
+            <span class="text-xs font-medium text-slate-200 line-clamp-1">Pengenalan UTP</span>
+          </button>
+          <!-- Slide Thumb 2 -->
+          <button onclick="goToSlide(1)" class="p-3 rounded-xl border bg-slate-950 border-slate-800 hover:border-slate-700 text-left transition-all">
+            <span class="text-[10px] text-slate-500 font-bold block">SLIDE 2</span>
+            <span class="text-xs font-medium text-slate-200 line-clamp-1">Standar T568A & B</span>
+          </button>
+          <!-- Slide Thumb 3 -->
+          <button onclick="goToSlide(2)" class="p-3 rounded-xl border bg-slate-950 border-slate-800 hover:border-slate-700 text-left transition-all">
+            <span class="text-[10px] text-slate-500 font-bold block">SLIDE 3</span>
+            <span class="text-xs font-medium text-slate-200 line-clamp-1">Kabel Straight-Through</span>
+          </button>
+          <!-- Slide Thumb 4 -->
+          <button onclick="goToSlide(3)" class="p-3 rounded-xl border bg-slate-950 border-slate-800 hover:border-slate-700 text-left transition-all">
+            <span class="text-[10px] text-slate-500 font-bold block">SLIDE 4</span>
+            <span class="text-xs font-medium text-slate-200 line-clamp-1">Kabel Crossover</span>
+          </button>
+          <!-- Slide Thumb 5 -->
+          <button onclick="goToSlide(4)" class="p-3 rounded-xl border bg-slate-950 border-slate-800 hover:border-slate-700 text-left transition-all">
+            <span class="text-[10px] text-slate-500 font-bold block">SLIDE 5</span>
+            <span class="text-xs font-medium text-slate-200 line-clamp-1">Troubleshooting LAN</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="standards-section" class="py-16 bg-slate-950 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold tracking-widest text-emerald-400 uppercase">Panduan Warna Kabel UTP</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Perbandingan Urutan Warna Straight vs Crossover</h2>
+        <p class="text-slate-400 text-sm mt-2">Acuan standar internasional TIA/EIA-568A dan TIA/EIA-568B untuk memastikan pin terpasang dengan benar.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        
+        <!-- Standard T568B (Straight-Through Standard) -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Standar Paling Umum</span>
+              <h3 class="text-lg font-bold text-white">Standar T568B</h3>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">Straight Cable</span>
+          </div>
+
+          <p class="text-xs text-slate-400">
+            Digunakan pada kabel <strong>Straight-Through</strong> (Ujung A = T568B, Ujung B = T568B) untuk menghubungkan <em>perangkat berbeda jenis</em> (misal: Router ke Switch, PC ke Switch).
+          </p>
+
+          <!-- Color Wires List -->
+          <div class="space-y-2">
+            <!-- Pin 1 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">1</span>
+              <div class="wire-line flex-1 bg-gradient-to-r from-orange-400 via-white to-orange-400 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Putih - Orange</span>
+              <span class="text-[10px] text-slate-500 font-mono">TX+</span>
+            </div>
+            <!-- Pin 2 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">2</span>
+              <div class="wire-line flex-1 bg-orange-500 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Orange</span>
+              <span class="text-[10px] text-slate-500 font-mono">TX-</span>
+            </div>
+            <!-- Pin 3 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">3</span>
+              <div class="wire-line flex-1 bg-gradient-to-r from-emerald-400 via-white to-emerald-400 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Putih - Hijau</span>
+              <span class="text-[10px] text-slate-500 font-mono">RX+</span>
+            </div>
+            <!-- Pin 4 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">4</span>
+              <div class="wire-line flex-1 bg-blue-600 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Biru</span>
+              <span class="text-[10px] text-slate-500 font-mono">Unused</span>
+            </div>
+            <!-- Pin 5 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">5</span>
+              <div class="wire-line flex-1 bg-gradient-to-r from-blue-400 via-white to-blue-400 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Putih - Biru</span>
+              <span class="text-[10px] text-slate-500 font-mono">Unused</span>
+            </div>
+            <!-- Pin 6 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">6</span>
+              <div class="wire-line flex-1 bg-emerald-600 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Hijau</span>
+              <span class="text-[10px] text-slate-500 font-mono">RX-</span>
+            </div>
+            <!-- Pin 7 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">7</span>
+              <div class="wire-line flex-1 bg-gradient-to-r from-amber-700 via-white to-amber-700 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Putih - Cokelat</span>
+              <span class="text-[10px] text-slate-500 font-mono">Unused</span>
+            </div>
+            <!-- Pin 8 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">8</span>
+              <div class="wire-line flex-1 bg-amber-800 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Cokelat</span>
+              <span class="text-[10px] text-slate-500 font-mono">Unused</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Standard T568A (Crossover / Alternative) -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Standar Alternatif</span>
+              <h3 class="text-lg font-bold text-white">Standar T568A</h3>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">Crossover Cable</span>
+          </div>
+
+          <p class="text-xs text-slate-400">
+            Digunakan pada salah satu ujung kabel <strong>Crossover</strong> (Ujung A = T568A, Ujung B = T568B) untuk menghubungkan <em>perangkat sejenis</em> (misal: PC ke PC).
+          </p>
+
+          <!-- Color Wires List -->
+          <div class="space-y-2">
+            <!-- Pin 1 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">1</span>
+              <div class="wire-line flex-1 bg-gradient-to-r from-emerald-400 via-white to-emerald-400 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Putih - Hijau</span>
+              <span class="text-[10px] text-slate-500 font-mono">RX+</span>
+            </div>
+            <!-- Pin 2 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">2</span>
+              <div class="wire-line flex-1 bg-emerald-600 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Hijau</span>
+              <span class="text-[10px] text-slate-500 font-mono">RX-</span>
+            </div>
+            <!-- Pin 3 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">3</span>
+              <div class="wire-line flex-1 bg-gradient-to-r from-orange-400 via-white to-orange-400 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Putih - Orange</span>
+              <span class="text-[10px] text-slate-500 font-mono">TX+</span>
+            </div>
+            <!-- Pin 4 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">4</span>
+              <div class="wire-line flex-1 bg-blue-600 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Biru</span>
+              <span class="text-[10px] text-slate-500 font-mono">Unused</span>
+            </div>
+            <!-- Pin 5 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">5</span>
+              <div class="wire-line flex-1 bg-gradient-to-r from-blue-400 via-white to-blue-400 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Putih - Biru</span>
+              <span class="text-[10px] text-slate-500 font-mono">Unused</span>
+            </div>
+            <!-- Pin 6 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">6</span>
+              <div class="wire-line flex-1 bg-orange-500 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Orange</span>
+              <span class="text-[10px] text-slate-500 font-mono">TX-</span>
+            </div>
+            <!-- Pin 7 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">7</span>
+              <div class="wire-line flex-1 bg-gradient-to-r from-amber-700 via-white to-amber-700 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Putih - Cokelat</span>
+              <span class="text-[10px] text-slate-500 font-mono">Unused</span>
+            </div>
+            <!-- Pin 8 -->
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs">
+              <span class="w-6 font-mono font-bold text-slate-500">8</span>
+              <div class="wire-line flex-1 bg-amber-800 border border-slate-700"></div>
+              <span class="w-32 font-medium text-slate-200">Cokelat</span>
+              <span class="text-[10px] text-slate-500 font-mono">Unused</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="quiz-section" class="py-16 bg-slate-900/40 border-b border-slate-800/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <div>
+            <span class="text-xs font-bold text-blue-400 uppercase tracking-widest">Evaluasi Pemahaman</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-0.5">Kuis Mandiri: Perangkaian Kabel LAN</h2>
+          </div>
+          <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-400 font-mono" id="quizProgress">Soal 1 dari 3</span>
+        </div>
+
+        <div id="quizContainer" class="space-y-4">
+          <h3 class="text-base sm:text-lg font-semibold text-slate-200" id="quizQuestion">
+            1. Urutan warna pertama (Pin 1) pada standar T568B adalah?
+          </h3>
+
+          <div class="space-y-2.5 pt-2" id="quizOptions">
+            <button onclick="selectOption(0)" class="w-full text-left p-3.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-blue-500 text-xs sm:text-sm text-slate-300 font-medium transition-colors flex items-center justify-between">
+              <span>A. Putih - Hijau</span>
+              <i class="fa-regular fa-circle text-slate-600"></i>
+            </button>
+            <button onclick="selectOption(1)" class="w-full text-left p-3.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-blue-500 text-xs sm:text-sm text-slate-300 font-medium transition-colors flex items-center justify-between">
+              <span>B. Putih - Orange</span>
+              <i class="fa-regular fa-circle text-slate-600"></i>
+            </button>
+            <button onclick="selectOption(2)" class="w-full text-left p-3.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-blue-500 text-xs sm:text-sm text-slate-300 font-medium transition-colors flex items-center justify-between">
+              <span>C. Orange</span>
+              <i class="fa-regular fa-circle text-slate-600"></i>
+            </button>
+          </div>
+
+          <div id="quizFeedback" class="hidden p-3.5 rounded-xl text-xs font-medium border"></div>
+
+          <div class="pt-2 flex justify-end">
+            <button id="nextQuizBtn" onclick="nextQuizQuestion()" class="hidden px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-colors">
+              Pertanyaan Berikutnya
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="mt-auto bg-slate-950 py-8 border-t border-slate-900 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2">
+        <span class="font-bold text-slate-300">ditya.id</span>
+        <span>• Tugas Jaringan Komputer</span>
+      </div>
+      <div>
+        <span>Dibuat dengan HTML5 & Tailwind CSS untuk Praktikum Kabel LAN</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="videoUrlModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="font-bold text-slate-200 text-sm">Ganti Source Video</h3>
+        <button onclick="toggleVideoUrlModal()" class="text-slate-500 hover:text-white text-sm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <p class="text-xs text-slate-400">
+        Masukkan URL video MP4 atau link YouTube yang ingin ditampilkan pada tugas Anda.
+      </p>
+      <div>
+        <label class="block text-xs font-medium text-slate-300 mb-1">URL Video</label>
+        <input type="text" id="videoUrlInput" placeholder="https://www.youtube.com/watch?v=... atau URL MP4" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-200 focus:outline-none focus:border-blue-500">
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="toggleVideoUrlModal()" class="px-3 py-2 rounded-lg bg-slate-800 text-slate-300 text-xs hover:bg-slate-700">Batal</button>
+        <button onclick="applyNewVideoUrl()" class="px-4 py-2 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-500">Simpan Video</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // YouTube Video Controls
+    const video = document.getElementById('lanVideo');
+    const chapterTitle = document.getElementById('currentChapterTitle');
+
+    function goToYouTubeChapter(title) {
+      const videoSection = document.getElementById('video-section');
+      if (videoSection) {
+        videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (title && chapterTitle) {
+        chapterTitle.textContent = "Bab: " + title;
+      }
+    }
+
+    function toggleVideoUrlModal() {
+      const modal = document.getElementById('videoUrlModal');
+      modal.classList.toggle('hidden');
+    }
+
+    function applyNewVideoUrl() {
+      const input = document.getElementById('videoUrlInput');
+      const url = input.value.trim();
+
+      if (url !== "") {
+        const youtubeMatch = url.match(
+          /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
+        );
+
+        if (youtubeMatch) {
+          video.src = "https://www.youtube.com/embed/" + youtubeMatch[1];
+        } else {
+          video.src = url;
+        }
+
+        toggleVideoUrlModal();
+      }
+    }
+
+    // PPT Slide Presentation Data & Logic
+    const slidesData = [
+      {
+        badge: "Slide 1: Pengenalan UTP",
+        title: "Pengenalan Kabel UTP & Konektor RJ-45",
+        desc: "Kabel UTP (Unshielded Twisted Pair) adalah media transmisi data yang terdiri dari 4 pasang kawat tembaga yang dipilin. Penggunaannya adalah untuk menghubungkan perangkat dalam jaringan lokal (LAN).",
+        bullets: [
+          "Kategori umum: Cat5e & Cat6",
+          "Jarak transmisi efektif max 100 meter",
+          "Konektor standar: RJ-45 (8 Pin)",
+          "Proteksi: Tanpa pelindung alumunium foil"
+        ]
+      },
+      {
+        badge: "Slide 2: Standar T568A & T568B",
+        title: "Standar Pengabelan Internasional (TIA/EIA)",
+        desc: "Dua standar internasional utama menentukan skema urutan warna pin pada kabel UTP: TIA/EIA-568A dan TIA/EIA-568B. Pemahaman urutan ini menentukan jenis kabel yang dibuat.",
+        bullets: [
+          "T568B paling sering digunakan di industri",
+          "T568A biasa dipakai pada skema Crossover",
+          "Pin 1, 2, 3, 6 digunakan untuk kirim/terima data (10/100 Mbps)",
+          "Pin 4, 5, 7, 8 digunakan untuk PoE / cadangan"
+        ]
+      },
+      {
+        badge: "Slide 3: Kabel Straight-Through",
+        title: "Kabel Straight-Through (Lurus)",
+        desc: "Kabel Straight memiliki urutan warna yang sama di kedua ujungnya (T568B ke T568B). Kabel ini menghubungkan dua perangkat yang memiliki peran jaringan berbeda.",
+        bullets: [
+          "Komputer (PC) ke Switch",
+          "Router ke Switch / Hub",
+          "Laptop ke Wall Socket / Access Point",
+          "Susunan: Putih Orange, Orange, Putih Hijau, Biru..."
+        ]
+      },
+      {
+        badge: "Slide 4: Kabel Crossover",
+        title: "Kabel Crossover (Silang)",
+        desc: "Kabel Crossover memiliki urutan warna T568A di satu ujung dan T568B di ujung lainnya. Digunakan untuk menghubungkan dua perangkat sejenis secara langsung.",
+        bullets: [
+          "Komputer (PC) langsung ke Komputer (PC)",
+          "Switch ke Switch (Tanpa Auto-MDIX)",
+          "Router ke Router",
+          "Tukar jalur TX (1,2) ke RX (3,6)"
+        ]
+      },
+      {
+        badge: "Slide 5: Pengujian & Troubleshooting",
+        title: "Pengujian dengan LAN Tester & Troubleshooting",
+        desc: "Langkah akhir perangkaian adalah melakukan tes kontinuitas kabel menggunakan LAN Tester. Lampu LED indikator 1 sampai 8 harus menyala secara berurutan.",
+        bullets: [
+          "Lampu 1-8 menyala urut: Kabel Straight sempurna",
+          "Lampu acak / mati: Pin kurang dalam / crimping longgar",
+          "Penyebab gagal: Jaket kabel kupas terlalu panjang",
+          "Solusi: Potong ulang dan crimp konektor RJ-45 baru"
+        ]
+      }
+    ];
+
+    let currentSlide = 0;
+
+    function renderSlide() {
+      const data = slidesData[currentSlide];
+      document.getElementById('slideCategoryBadge').textContent = data.badge;
+      document.getElementById('slideCounterText').textContent = `Slide ${currentSlide + 1} dari ${slidesData.length}`;
+      document.getElementById('slideTitle').textContent = data.title;
+      document.getElementById('slideDescription').textContent = data.desc;
+
+      const bulletsContainer = document.getElementById('slideBullets');
+      bulletsContainer.innerHTML = '';
+      data.bullets.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'p-3 bg-slate-900/80 border border-slate-800 rounded-lg text-xs text-slate-300 flex items-center gap-2';
+        div.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> ${item}`;
+        bulletsContainer.appendChild(div);
+      });
+
+      // Update Navigation buttons
+      document.getElementById('prevSlideBtn').disabled = currentSlide === 0;
+      document.getElementById('nextSlideBtn').disabled = currentSlide === slidesData.length - 1;
+
+      // Update Thumbnails border
+      const thumbs = document.getElementById('slideThumbnails').children;
+      for (let i = 0; i < thumbs.length; i++) {
+        if (i === currentSlide) {
+          thumbs[i].className = 'p-3 rounded-xl border bg-slate-950 border-blue-500 text-left transition-all';
+        } else {
+          thumbs[i].className = 'p-3 rounded-xl border bg-slate-950 border-slate-800 hover:border-slate-700 text-left transition-all';
+        }
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        renderSlide();
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < slidesData.length - 1) {
+        currentSlide++;
+        renderSlide();
+      }
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      renderSlide();
+    }
+
+    // Quiz Questions Data & Logic
+    const quizData = [
+      {
+        q: "1. Urutan warna pertama (Pin 1) pada standar T568B adalah?",
+        options: ["A. Putih - Hijau", "B. Putih - Orange", "C. Orange"],
+        answer: 1
+      },
+      {
+        q: "2. Kabel Straight-Through digunakan untuk menghubungkan?",
+        options: ["A. PC ke PC secara langsung", "B. Switch ke Switch", "C. PC ke Switch / Hub"],
+        answer: 2
+      },
+      {
+        q: "3. Alat yang digunakan untuk mengunci konektor RJ-45 pada kabel UTP dinamakan?",
+        options: ["A. Tang Crimping", "B. LAN Tester", "C. Wire Stripper"],
+        answer: 0
+      }
+    ];
+
+    let currentQuizIndex = 0;
+    let selectedOption = null;
+
+    function renderQuiz() {
+      const data = quizData[currentQuizIndex];
+      document.getElementById('quizProgress').textContent = `Soal ${currentQuizIndex + 1} dari ${quizData.length}`;
+      document.getElementById('quizQuestion').textContent = data.q;
+      
+      const optionsContainer = document.getElementById('quizOptions');
+      optionsContainer.innerHTML = '';
+
+      data.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.onclick = () => selectQuizOption(idx);
+        btn.className = 'w-full text-left p-3.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-blue-500 text-xs sm:text-sm text-slate-300 font-medium transition-colors flex items-center justify-between';
+        btn.innerHTML = `<span>${opt}</span><i class="fa-regular fa-circle text-slate-600"></i>`;
+        optionsContainer.appendChild(btn);
+      });
+
+      document.getElementById('quizFeedback').className = 'hidden p-3.5 rounded-xl text-xs font-medium border';
+      document.getElementById('nextQuizBtn').classList.add('hidden');
+    }
+
+    function selectQuizOption(index) {
+      const data = quizData[currentQuizIndex];
+      const feedback = document.getElementById('quizFeedback');
+      const nextBtn = document.getElementById('nextQuizBtn');
+      
+      feedback.classList.remove('hidden');
+      
+      if (index === data.answer) {
+        feedback.className = 'p-3.5 rounded-xl text-xs font-medium border bg-emerald-950/40 border-emerald-800 text-emerald-300';
+        feedback.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Jawaban Anda Benar!';
+      } else {
+        feedback.className = 'p-3.5 rounded-xl text-xs font-medium border bg-rose-950/40 border-rose-800 text-rose-300';
+        feedback.innerHTML = '<i class="fa-solid fa-circle-xmark text-rose-400 mr-2"></i> Jawaban Kurang Tepat. Coba periksa kembali materi standar kabel.';
+      }
+
+      nextBtn.classList.remove('hidden');
+      if (currentQuizIndex === quizData.length - 1) {
+        nextBtn.textContent = 'Selesai Kuis';
+      } else {
+        nextBtn.textContent = 'Pertanyaan Berikutnya';
+      }
+    }
+
+    function nextQuizQuestion() {
+      if (currentQuizIndex < quizData.length - 1) {
+        currentQuizIndex++;
+        renderQuiz();
+      } else {
+        alert('Selamat! Anda telah menyelesaikan Kuis Mandiri Perangkaian Kabel LAN.');
+        currentQuizIndex = 0;
+        renderQuiz();
+      }
+    }
+
+    // Initialize UI Component States
+    window.onload = function() {
+      renderSlide();
+      renderQuiz();
+    };
+  </script>
+</body>
+</html>
